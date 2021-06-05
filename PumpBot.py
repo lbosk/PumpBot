@@ -291,7 +291,7 @@ while not(orderCompleted):
 orderCompleted = False
 
 message = 'Buy order has been made: bought {} {} at price {} {}!'
-message = message.format(coinOrderQty,tradedCoin,coinPriceBought,quotedCoin)
+message = message.format(coinOrderQty,tradedCoin,coinPriceBought*coinOrderQty,quotedCoin)
 print(message)
 log(message)
 
@@ -437,7 +437,7 @@ profit = newQuotedBalance - QuotedBalance
 profit=float_to_string(profit, 2+int(- math.log10(minPrice)))
 
 message = 'Profit made: {} {} = {:.2f} {}'
-message = message.format(profit,tradedCoin,float(profit)*in_USD,fiatcurrency)
+message = message.format(profit,quotedCoin,float(profit)*in_USD,fiatcurrency)
 print(message)
 log(message)
 
